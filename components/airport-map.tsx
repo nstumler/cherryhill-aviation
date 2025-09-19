@@ -1,14 +1,16 @@
 'use client'
 
 import { useEffect } from 'react'
-import type { LatLngTuple } from 'leaflet'
+import type { LatLngTuple, ControlOptions } from 'leaflet'
+type LeafletModule = typeof import('leaflet')
 
 export function AirportMap() {
   useEffect(() => {
     // Only run on client side
     if (typeof window !== 'undefined') {
       // Dynamically import Leaflet
-      import('leaflet').then((L) => {
+      import('leaflet').then((leaflet: LeafletModule) => {
+        const L = leaflet
         // Airport coordinates (updated to match actual addresses)
         const serCoords: LatLngTuple = [38.9590, -85.9001] // Freeman Municipal Airport, 1025 A Ave, Seymour, IN
         const ovoCoords: LatLngTuple = [39.0028, -85.6172] // North Vernon Muni Airport-Ovo, 645 E County Rd 450 N
@@ -64,7 +66,7 @@ export function AirportMap() {
         }
         
         // Add geolocation control
-        const locateControl = L.control({position: 'topleft'})
+        const locateControl = L.control({position: 'topleft'} as ControlOptions)
         locateControl.onAdd = function (map) {
           const div = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom')
           div.innerHTML = '<a href="#" title="Locate Me" role="button" aria-label="Locate Me" style="font-size: 1.2em; line-height: 1.2; text-align: center; display: block; width: 30px; height: 30px;">📍</a>'
