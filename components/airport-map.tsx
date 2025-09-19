@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import type { LatLngTuple } from 'leaflet'
 
 export function AirportMap() {
   useEffect(() => {
@@ -9,12 +10,12 @@ export function AirportMap() {
       // Dynamically import Leaflet
       import('leaflet').then((L) => {
         // Airport coordinates (updated to match actual addresses)
-        const serCoords = [38.9590, -85.9001] // Freeman Municipal Airport, 1025 A Ave, Seymour, IN
-        const ovoCoords = [39.0028, -85.6172] // North Vernon Muni Airport-Ovo, 645 E County Rd 450 N
-        const bfrCoords = [38.8397, -86.4456] // Virgil I. Grissom Municipal, 3213 Tunnelton Rd, Bedford, IN
+        const serCoords: LatLngTuple = [38.9590, -85.9001] // Freeman Municipal Airport, 1025 A Ave, Seymour, IN
+        const ovoCoords: LatLngTuple = [39.0028, -85.6172] // North Vernon Muni Airport-Ovo, 645 E County Rd 450 N
+        const bfrCoords: LatLngTuple = [38.8397, -86.4456] // Virgil I. Grissom Municipal, 3213 Tunnelton Rd, Bedford, IN
         
         // Center map on Indiana
-        const centerCoords = [38.9, -86.0]
+        const centerCoords: LatLngTuple = [38.9, -86.0]
         
         // Create map
         const map = L.map('airport-map').setView(centerCoords, 10)
