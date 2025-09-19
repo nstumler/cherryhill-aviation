@@ -22,7 +22,7 @@ export function Footer() {
               <span className="text-xl font-bold text-black">Cherry Hill Aviation</span>
             </Link>
             <p className="text-black text-sm">
-              Experience the thrill of flight with our expert instructors and state-of-the-art aircraft.
+              Experience the thrill of flight with our expert instructors and FAA-certified aircraft.
             </p>
           </div>
           <div>
