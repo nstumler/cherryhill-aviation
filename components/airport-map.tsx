@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import type { LatLngTuple, ControlOptions } from 'leaflet'
+import type { LatLngTuple, ControlOptions, Map as LeafletMap } from 'leaflet'
 type LeafletModule = typeof import('leaflet')
 
 export function AirportMap() {
@@ -66,8 +66,8 @@ export function AirportMap() {
         }
         
         // Add geolocation control
-        const locateControl = L.control({position: 'topleft'} as ControlOptions)
-        locateControl.onAdd = function (map) {
+        const locateControl = (L as any).control({position: 'topleft'} as ControlOptions)
+        locateControl.onAdd = function (map: LeafletMap) {
           const div = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom')
           div.innerHTML = '<a href="#" title="Locate Me" role="button" aria-label="Locate Me" style="font-size: 1.2em; line-height: 1.2; text-align: center; display: block; width: 30px; height: 30px;">📍</a>'
           div.onclick = function(e){

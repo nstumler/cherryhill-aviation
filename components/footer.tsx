@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { SVGProps } from "react";
 
 export function Footer() {
   return (
@@ -59,7 +60,7 @@ export function Footer() {
   );
 }
 
-function PlaneIcon(props) {
+function PlaneIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
