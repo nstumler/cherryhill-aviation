@@ -112,40 +112,40 @@ const Home = () => {
             {/* Location Contact Info */}
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               <div className="text-center bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-                <h3 className="text-lg font-bold text-black mb-2">Bedford Airport</h3>
+                <h3 className="text-lg font-bold text-black mb-2">Virgil I. Grissom Municipal Airport</h3>
                 <p className="text-gray-600 text-sm mb-1">3213 Tunnelton Rd</p>
                 <p className="text-gray-600 text-sm mb-3">Bedford, IN 47421</p>
                 <Link
                   href="https://maps.google.com/?q=3213+Tunnelton+Rd,+Bedford,+IN+47421"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center text-accent font-medium text-sm hover:text-accent-dark transition-colors"
+                  className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
                 >
                   Get Directions
                 </Link>
               </div>
               <div className="text-center bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-                <h3 className="text-lg font-bold text-black mb-2">Seymour Airport</h3>
+                <h3 className="text-lg font-bold text-black mb-2">Freeman Municipal Airport</h3>
                 <p className="text-gray-600 text-sm mb-1">1025 A Ave</p>
                 <p className="text-gray-600 text-sm mb-3">Seymour, IN 47274</p>
                 <Link
                   href="https://maps.google.com/?q=1025+A+Ave,+Seymour,+IN+47274"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center text-accent font-medium text-sm hover:text-accent-dark transition-colors"
+                  className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
                 >
                   Get Directions
                 </Link>
               </div>
               <div className="text-center bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-                <h3 className="text-lg font-bold text-black mb-2">North Vernon Airport</h3>
+                <h3 className="text-lg font-bold text-black mb-2">North Vernon Muni Airport-Ovo</h3>
                 <p className="text-gray-600 text-sm mb-1">645 E County Rd 450 N</p>
                 <p className="text-gray-600 text-sm mb-3">North Vernon, IN 47265</p>
                 <Link
                   href="https://maps.google.com/?q=645+E+County+Rd+450+N,+North+Vernon,+IN+47265"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center text-accent font-medium text-sm hover:text-accent-dark transition-colors"
+                  className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
                 >
                   Get Directions
                 </Link>
