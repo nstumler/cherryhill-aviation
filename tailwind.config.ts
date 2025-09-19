@@ -16,6 +16,10 @@ const config: Config = {
           dark: '#B30225',
         },
       },
+      fontFamily: {
+        'display': ['var(--font-playfair)', 'serif'],
+        'heading': ['var(--font-playfair)', 'serif'],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",

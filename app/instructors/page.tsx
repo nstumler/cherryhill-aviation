@@ -12,7 +12,7 @@ export default function Instructors() {
         <section className="py-24">
           <div className="container px-4 mx-auto">
             <div className="max-w-2xl mx-auto mb-16 text-center">
-              <h2 className="text-4xl font-bold tracking-tighter text-black">Our Instructors</h2>
+              <h2 className="text-4xl font-heading font-bold tracking-tighter text-black">Our Instructors</h2>
               <p className="mt-4 text-lg text-muted-foreground">
                 Meet the experienced pilots who will guide you on your journey to becoming a skilled aviator.
               </p>
@@ -27,7 +27,7 @@ export default function Instructors() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-black">John Doe</h3>
+                  <h3 className="text-xl font-heading font-semibold text-black">John Doe</h3>
                   <p className="mt-1 text-sm text-muted-foreground">Chief Flight Instructor</p>
                   <p className="mt-4 text-sm leading-relaxed text-gray-500">
                     With over 20 years of experience, John is a true master of the skies. His passion for aviation is
@@ -44,7 +44,7 @@ export default function Instructors() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-black">Jane Smith</h3>
+                  <h3 className="text-xl font-heading font-semibold text-black">Jane Smith</h3>
                   <p className="mt-1 text-sm text-muted-foreground">Commercial Pilot Instructor</p>
                   <p className="mt-4 text-sm leading-relaxed text-gray-500">
                     Jane's expertise in commercial aviation is second to none. With a wealth of knowledge and a calm
@@ -61,7 +61,7 @@ export default function Instructors() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-black">Michael Johnson</h3>
+                  <h3 className="text-xl font-heading font-semibold text-black">Michael Johnson</h3>
                   <p className="mt-1 text-sm text-muted-foreground">Instrument Rating Instructor</p>
                   <p className="mt-4 text-sm leading-relaxed text-gray-500">
                     Michael's expertise in instrument flight rules (IFR) is unmatched. His attention to detail and ability

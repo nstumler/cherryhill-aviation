@@ -1,0 +1,27 @@
+# Cursor Rules
+
+## General Guidelines
+- Keep changes simple and robust
+- Don't overengineer solutions
+- Only modify what was explicitly requested
+- Maintain existing code patterns and styles
+- Don't add unnecessary features or complexity
+- Preserve existing functionality exactly as is
+- Use minimal, targeted changes
+
+## Code Changes
+- Make the smallest possible change to achieve the requested outcome
+- Don't refactor code unless specifically asked
+- Don't change variable names, function names, or structure unless required
+- Don't add new dependencies or imports unless necessary
+- Don't modify styling beyond what's requested
+- Keep existing animations, colors, and UI patterns intact
+
+## UI/UX Changes
+- Only adjust the specific UI elements mentioned in the request
+- Don't change colors, fonts, or other design elements unless asked
+- Maintain existing responsive behavior
+- Keep existing accessibility features
+- Don't add new UI components unless specifically requested
+
+## When in doubt, do less rather than more. 

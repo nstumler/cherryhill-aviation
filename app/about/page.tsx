@@ -14,7 +14,7 @@ export default function AboutPage() {
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl text-black">
+                  <h1 className="text-3xl font-heading font-bold tracking-tighter sm:text-5xl xl:text-6xl text-black">
                     Soar to New Heights with Cherry Hill Aviation
                   </h1>
                   <p className="max-w-[600px] text-gray-500 md:text-xl">
@@ -48,11 +48,11 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-primary border-t border-gray-200">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-black">
+                <h2 className="text-3xl font-heading font-bold tracking-tighter sm:text-5xl text-black">
                   Explore Our Flight Training Programs
                 </h2>
                 <p className="max-w-[900px] text-gray-500 md:text-xl lg:text-base xl:text-xl">
@@ -64,7 +64,7 @@ export default function AboutPage() {
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 md:grid-cols-3 lg:gap-12">
               <div className="flex flex-col justify-between rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
                 <div>
-                  <h3 className="text-xl font-bold text-black">Private Pilot</h3>
+                  <h3 className="text-xl font-heading font-bold text-black">Private Pilot</h3>
                   <p className="mt-2 text-gray-500">
                     Earn your private pilot certificate and take to the skies. Our comprehensive training program covers
                     all the essential skills and knowledge you need.
@@ -80,7 +80,7 @@ export default function AboutPage() {
               </div>
               <div className="flex flex-col justify-between rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
                 <div>
-                  <h3 className="text-xl font-bold text-black">Instrument Rating</h3>
+                  <h3 className="text-xl font-heading font-bold text-black">Instrument Rating</h3>
                   <p className="mt-2 text-gray-500">
                     Take your flying skills to the next level with an instrument rating. Our program will teach you to
                     fly safely in instrument meteorological conditions.
@@ -96,7 +96,7 @@ export default function AboutPage() {
               </div>
               <div className="flex flex-col justify-between rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
                 <div>
-                  <h3 className="text-xl font-bold text-black">Commercial Pilot</h3>
+                  <h3 className="text-xl font-heading font-bold text-black">Commercial Pilot</h3>
                   <p className="mt-2 text-gray-500">
                     Earn your commercial pilot certificate and open up a world of career opportunities. Our program
                     covers advanced flying techniques and prepares you for a professional pilot role.
@@ -112,7 +112,7 @@ export default function AboutPage() {
               </div>
               <div className="flex flex-col justify-between rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
                 <div>
-                  <h3 className="text-xl font-bold text-black">Flight Instructor</h3>
+                  <h3 className="text-xl font-heading font-bold text-black">Flight Instructor</h3>
                   <p className="mt-2 text-gray-500">
                     Become a certified flight instructor and share your passion for aviation with the next generation of
                     pilots. Our program covers all the skills and knowledge you need to teach others to fly.
@@ -165,7 +165,7 @@ export default function AboutPage() {
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-black">Our Locations</h2>
+                <h2 className="text-3xl font-heading font-bold tracking-tighter sm:text-5xl text-black">Our Locations</h2>
                 <p className="max-w-[900px] text-gray-500 md:text-xl lg:text-base xl:text-xl">
                   Cherry Hill Aviation has three convenient locations in Indiana to serve your flight training needs.
                 </p>

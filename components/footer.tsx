@@ -8,7 +8,7 @@ export function Footer() {
           <div>
             <Link className="flex items-center mb-4" href="#">
               <PlaneIcon className="h-8 w-8 mr-2 text-accent" />
-              <span className="text-xl font-semibold text-black">Cherry Hill Aviation</span>
+              <span className="text-xl font-heading font-semibold text-black">Cherry Hill Aviation</span>
             </Link>
             <p className="text-black text-sm">
               Experience the thrill of flight with our expert instructors and state-of-the-art aircraft.
