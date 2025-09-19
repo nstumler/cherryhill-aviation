@@ -47,7 +47,7 @@ export default function Fleet() {
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-primary">
-          <h1 className="text-5xl font-heading font-bold tracking-tight lg:text-7xl">Explore Our Fleet</h1>
+          <h1 className="text-5xl font-bold tracking-tight lg:text-7xl">Explore Our Fleet</h1>
           <p className="mt-4 max-w-2xl text-xl lg:text-2xl">
             Experience the thrill of flight with our diverse range of aircraft.
           </p>
@@ -55,7 +55,7 @@ export default function Fleet() {
       </section>
       <section className="py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-heading font-bold tracking-tight text-accent sm:text-4xl">Our Aircraft</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-accent sm:text-4xl">Our Aircraft</h2>
           <p className="mt-4 max-w-3xl text-xl text-gray-500">
             Discover the aircraft that will take your flying experience to new heights.
           </p>
@@ -63,7 +63,7 @@ export default function Fleet() {
             {aircraftData.map((aircraft, index) => (
               <Card key={index} className="mx-auto max-w-md bg-white border border-gray-200 shadow-lg rounded-lg">
                 <CardHeader className="bg-accent-dark text-primary rounded-t-lg">
-                  <CardTitle className="font-heading">{aircraft.title}</CardTitle>
+                  <CardTitle className="font-bold">{aircraft.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <img src={aircraft.imgSrc} alt={aircraft.title} width={400} height={300} className="rounded-md" />

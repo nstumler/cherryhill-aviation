@@ -1,6 +1,7 @@
 'use client'
 
 import Link from "next/link";
+import Image from "next/image";
 import { PhoneIcon, MailIcon, ClockIcon } from "lucide-react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
@@ -9,98 +10,172 @@ export default function Contact() {
   return (
     <div className="flex flex-col min-h-screen bg-primary">
       <Header />
-      <main className="flex flex-1 flex-col md:flex-row">
-        <div className="w-full md:w-1/2 relative">
-          <img src="/view.png" alt="Plane" className="object-cover w-full h-full" />
-          <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-            <h1 className="text-5xl font-heading font-bold text-white mb-8 text-center">Contact Us</h1>
-          </div>
-        </div>
-        <div className="w-full md:w-1/2 bg-primary p-8 shadow-lg border border-gray-200">
-          <form className="space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="first-name" className="block text-sm font-medium text-gray-700 mb-1">
-                  First Name
-                </label>
-                <input type="text" id="first-name" className="w-full p-2 border border-gray-300 rounded-md focus:ring-accent focus:border-accent bg-white" />
-              </div>
-              <div>
-                <label htmlFor="last-name" className="block text-sm font-medium text-gray-700 mb-1">
-                  Last Name
-                </label>
-                <input type="text" id="last-name" className="w-full p-2 border border-gray-300 rounded-md focus:ring-accent focus:border-accent bg-white" />
-              </div>
+      <main className="flex-1">
+        {/* Hero Section */}
+        <section className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="text-center mb-12">
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl text-black mb-4">
+                Contact Us
+              </h1>
+              <p className="max-w-[600px] text-gray-500 md:text-xl mx-auto">
+                Ready to start your aviation journey? Get in touch with our team and let's get you flying.
+              </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  Email
-                </label>
-                <input type="email" id="email" className="w-full p-2 border border-gray-300 rounded-md focus:ring-accent focus:border-accent bg-white" />
-              </div>
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                  Phone
-                </label>
-                <input type="tel" id="phone" className="w-full p-2 border border-gray-300 rounded-md focus:ring-accent focus:border-accent bg-white" />
-              </div>
-            </div>
-            <div>
-              <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">
-                What can we help you with today?
-              </label>
-              <select id="service" className="w-full p-2 border border-gray-300 rounded-md focus:ring-accent focus:border-accent bg-white">
-                <option>Flight Instruction</option>
-                <option>Aircraft Rental</option>
-                <option>Scenic Flights</option>
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Contact preference:</label>
-              <div className="flex items-center space-x-4">
-                {['Phone', 'Email', 'Text'].map((pref) => (
-                  <div key={pref} className="flex items-center">
-                    <input type="radio" id={`${pref.toLowerCase()}-preference`} name="contact-preference" className="mr-2 text-accent focus:ring-accent" />
-                    <label htmlFor={`${pref.toLowerCase()}-preference`} className="text-sm text-gray-700">
-                      {pref}
-                    </label>
+            
+            <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-start">
+              {/* Contact Form */}
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8">
+                <h2 className="text-2xl font-bold text-black mb-6">Send us a message</h2>
+                <form className="space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="first-name" className="block text-sm font-semibold text-gray-700 mb-2">
+                        First Name
+                      </label>
+                      <input 
+                        type="text" 
+                        id="first-name" 
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white transition-colors" 
+                        placeholder="Your first name"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="last-name" className="block text-sm font-semibold text-gray-700 mb-2">
+                        Last Name
+                      </label>
+                      <input 
+                        type="text" 
+                        id="last-name" 
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white transition-colors" 
+                        placeholder="Your last name"
+                      />
+                    </div>
                   </div>
-                ))}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                        Email
+                      </label>
+                      <input 
+                        type="email" 
+                        id="email" 
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white transition-colors" 
+                        placeholder="your.email@example.com"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+                        Phone
+                      </label>
+                      <input 
+                        type="tel" 
+                        id="phone" 
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white transition-colors" 
+                        placeholder="(555) 123-4567"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="service" className="block text-sm font-semibold text-gray-700 mb-2">
+                      What can we help you with today?
+                    </label>
+                    <select id="service" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white transition-colors">
+                      <option value="">Select a service...</option>
+                      <option>Private Pilot License</option>
+                      <option>Instrument Rating</option>
+                      <option>Commercial Pilot License</option>
+                      <option>Flight Instructor Certification</option>
+                      <option>Aircraft Rental</option>
+                      <option>Discovery Flight</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-3">Preferred contact method:</label>
+                    <div className="flex flex-wrap gap-4">
+                      {['Phone', 'Email', 'Text'].map((pref) => (
+                        <label key={pref} className="flex items-center cursor-pointer">
+                          <input 
+                            type="radio" 
+                            name="contact-preference" 
+                            value={pref.toLowerCase()}
+                            className="mr-2 text-accent focus:ring-accent focus:ring-2" 
+                          />
+                          <span className="text-sm text-gray-700 font-medium">{pref}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={4}
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white transition-colors resize-none"
+                      placeholder="Tell us more about your aviation goals and how we can help..."
+                    />
+                  </div>
+                  <button 
+                    type="submit" 
+                    className="w-full p-3 bg-accent hover:bg-accent-dark text-primary font-semibold rounded-lg transition-colors shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+                  >
+                    Send Message
+                  </button>
+                </form>
+              </div>
+
+              {/* Contact Information & Image */}
+              <div className="space-y-8">
+                {/* Image */}
+                <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/view.png"
+                    alt="Cherry Hill Aviation - Beautiful mountain scenery for flight training"
+                    fill
+                    className="object-cover"
+                    quality={90}
+                  />
+                </div>
+
+                {/* Contact Info Cards */}
+                <div className="grid gap-4">
+                  <div className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+                    <div className="flex items-center space-x-3">
+                      <PhoneIcon className="w-6 h-6 text-accent" />
+                      <div>
+                        <h3 className="font-bold text-black">Call Us</h3>
+                        <p className="text-gray-600">615-669-5117</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+                    <div className="flex items-center space-x-3">
+                      <MailIcon className="w-6 h-6 text-accent" />
+                      <div>
+                        <h3 className="font-bold text-black">Email Us</h3>
+                        <p className="text-gray-600">fly@cherryhillaviation.com</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+                    <div className="flex items-center space-x-3">
+                      <ClockIcon className="w-6 h-6 text-accent" />
+                      <div>
+                        <h3 className="font-bold text-black">Hours</h3>
+                        <p className="text-gray-600">Mon - Sun: 8am - 5pm</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                Message
-              </label>
-              <textarea
-                id="message"
-                rows={4}
-                className="w-full p-2 border border-gray-300 rounded-md focus:ring-accent focus:border-accent bg-white"
-                placeholder="Tell us more about how we can help..."
-              />
-            </div>
-            <button type="submit" className="w-full p-3 bg-accent hover:bg-accent-dark text-white rounded-md transition duration-300 ease-in-out transform hover:-translate-y-1">
-              Submit
-            </button>
-          </form>
-        </div>
-      </main>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-6 bg-gray-800 text-primary">
-        {[
-          { icon: PhoneIcon, title: "CALL US", content: "Tel: 615-669-5117" },
-          { icon: MailIcon, title: "EMAIL US", content: "fly@classbravoair.com" },
-          { icon: ClockIcon, title: "OPENING HOURS", content: "Mon - Sun: 8am - 5pm" },
-        ].map((item, index) => (
-          <div key={index} className="flex items-center space-x-3 justify-center">
-            <item.icon className="w-8 h-8 text-accent" />
-            <div>
-              <p className="font-semibold">{item.title}</p>
-              <p className="text-sm">{item.content}</p>
-            </div>
           </div>
-        ))}
-      </div>
+        </section>
+      </main>
       <Footer />
     </div>
   )

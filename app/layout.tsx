@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
 const playfairDisplay = Playfair_Display({ 
   subsets: ["latin"],
   variable: '--font-playfair',
@@ -21,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${playfairDisplay.variable} bg-primary min-h-screen`}>{children}</body>
+      <body className={`${playfairDisplay.className} ${playfairDisplay.variable} bg-primary min-h-screen`}>{children}</body>
     </html>
   );
 }

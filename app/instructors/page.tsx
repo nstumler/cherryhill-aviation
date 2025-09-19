@@ -12,7 +12,7 @@ export default function Instructors() {
         <section className="py-24">
           <div className="container px-4 mx-auto">
             <div className="max-w-2xl mx-auto mb-16 text-center">
-              <h2 className="text-4xl font-heading font-bold tracking-tighter text-black">Our Instructors</h2>
+              <h2 className="text-4xl font-bold tracking-tighter text-black">Our Instructors</h2>
               <p className="mt-4 text-lg text-muted-foreground">
                 Meet the experienced pilots who will guide you on your journey to becoming a skilled aviator.
               </p>

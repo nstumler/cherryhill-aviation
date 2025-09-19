@@ -8,14 +8,14 @@ export function Footer() {
           <div>
             <Link className="flex items-center mb-4" href="#">
               <PlaneIcon className="h-8 w-8 mr-2 text-accent" />
-              <span className="text-xl font-heading font-semibold text-black">Cherry Hill Aviation</span>
+              <span className="text-xl font-bold text-black">Cherry Hill Aviation</span>
             </Link>
             <p className="text-black text-sm">
               Experience the thrill of flight with our expert instructors and state-of-the-art aircraft.
             </p>
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-black">Quick Links</h4>
+            <h4 className="text-lg font-bold mb-4 text-black">Quick Links</h4>
             <nav className="grid gap-2">
               <Link className="text-black hover:text-accent transition-colors" href="#">
                 About
@@ -32,7 +32,7 @@ export function Footer() {
             </nav>
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-black">Contact</h4>
+            <h4 className="text-lg font-bold mb-4 text-black">Contact</h4>
             <div className="text-black text-sm">
               <p>123 Aviation Way</p>
               <p>Skyville, CA 90210</p>

@@ -18,16 +18,16 @@ export function Header() {
         <span className="sr-only">Cherry Hill Aviation</span>
       </Link>
       <nav className="hidden lg:flex lg:items-center lg:gap-8">
-        <Link className="text-lg font-medium text-black hover:text-accent" href="/about">
+        <Link className="text-lg font-semibold text-black hover:text-accent transition-colors" href="/about">
           About
         </Link>
-        <Link className="text-lg font-medium text-black hover:text-accent" href="/fleet">
+        <Link className="text-lg font-semibold text-black hover:text-accent transition-colors" href="/fleet">
           Fleet
         </Link>
-        <Link className="text-lg font-medium text-black hover:text-accent" href="/instructors">
+        <Link className="text-lg font-semibold text-black hover:text-accent transition-colors" href="/instructors">
           Instructors
         </Link>
-        <Link className="text-lg font-medium text-black hover:text-accent" href="/contact">
+        <Link className="text-lg font-semibold text-black hover:text-accent transition-colors" href="/contact">
           Contact
         </Link>
       </nav>
@@ -40,16 +40,16 @@ export function Header() {
         </SheetTrigger>
         <SheetContent side="right" className="bg-primary text-black">
           <div className="grid gap-4 py-6">
-            <Link className="flex w-full items-center py-2 text-lg font-semibold text-black" href="/about">
+            <Link className="flex w-full items-center py-2 text-lg font-semibold text-black hover:text-accent transition-colors" href="/about">
               About
             </Link>  
-            <Link className="flex w-full items-center py-2 text-lg font-semibold text-black" href="/fleet">
+            <Link className="flex w-full items-center py-2 text-lg font-semibold text-black hover:text-accent transition-colors" href="/fleet">
               Fleet
             </Link>
-            <Link className="flex w-full items-center py-2 text-lg font-semibold text-black" href="/instructors">
+            <Link className="flex w-full items-center py-2 text-lg font-semibold text-black hover:text-accent transition-colors" href="/instructors">
               Instructors
             </Link>
-            <Link className="flex w-full items-center py-2 text-lg font-semibold text-black" href="/contact">
+            <Link className="flex w-full items-center py-2 text-lg font-semibold text-black hover:text-accent transition-colors" href="/contact">
               Contact
             </Link>
           </div>

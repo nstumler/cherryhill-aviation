@@ -17,6 +17,7 @@ const config: Config = {
         },
       },
       fontFamily: {
+        'sans': ['var(--font-playfair)', 'serif'],
         'display': ['var(--font-playfair)', 'serif'],
         'heading': ['var(--font-playfair)', 'serif'],
       },
