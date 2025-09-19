@@ -19,7 +19,7 @@ export default function Contact() {
                 Contact Us
               </h1>
               <p className="max-w-[600px] text-gray-500 md:text-xl mx-auto">
-                Ready to start your aviation journey? Get in touch with our team and let's get you flying.
+                Ready to start your aviation journey? Get in touch with our team and let&#39;s get you flying.
               </p>
             </div>
             

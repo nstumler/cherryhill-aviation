@@ -5,6 +5,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 
 const aircraftData = [
   {
@@ -66,7 +67,7 @@ export default function Fleet() {
                   <CardTitle className="font-bold">{aircraft.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <img src={aircraft.imgSrc} alt={aircraft.title} width={400} height={300} className="rounded-md" />
+                  <Image src={aircraft.imgSrc} alt={aircraft.title} width={400} height={300} className="rounded-md" />
                   <div className="mt-4">
                     <p className="text-gray-500">{aircraft.description}</p>
                     <p className="mt-2 text-gray-500">

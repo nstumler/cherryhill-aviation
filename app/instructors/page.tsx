@@ -1,6 +1,7 @@
 'use client'
 
 import Link from "next/link"
+import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
@@ -20,9 +21,10 @@ export default function Instructors() {
             <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
               <div className="overflow-hidden rounded-lg bg-white shadow-md">
                 <div className="relative pt-[100%]">
-                  <img
+                  <Image
                     src="/placeholder.svg"
                     alt="Instructor Photo"
+                    fill
                     className="absolute inset-0 object-cover w-full h-full"
                   />
                 </div>
@@ -37,9 +39,10 @@ export default function Instructors() {
               </div>
               <div className="overflow-hidden rounded-lg bg-white shadow-md">
                 <div className="relative pt-[100%]">
-                  <img
+                  <Image
                     src="/placeholder.svg"
                     alt="Instructor Photo"
+                    fill
                     className="absolute inset-0 object-cover w-full h-full"
                   />
                 </div>
@@ -47,16 +50,17 @@ export default function Instructors() {
                   <h3 className="text-xl font-heading font-semibold text-black">Jane Smith</h3>
                   <p className="mt-1 text-sm text-muted-foreground">Commercial Pilot Instructor</p>
                   <p className="mt-4 text-sm leading-relaxed text-gray-500">
-                    Jane's expertise in commercial aviation is second to none. With a wealth of knowledge and a calm
+                    Jane&#39;s expertise in commercial aviation is second to none. With a wealth of knowledge and a calm
                     demeanor, she ensures that every student feels confident and prepared.
                   </p>
                 </div>
               </div>
               <div className="overflow-hidden rounded-lg bg-white shadow-md">
                 <div className="relative pt-[100%]">
-                  <img
+                  <Image
                     src="/placeholder.svg"
                     alt="Instructor Photo"
+                    fill
                     className="absolute inset-0 object-cover w-full h-full"
                   />
                 </div>
@@ -64,7 +68,7 @@ export default function Instructors() {
                   <h3 className="text-xl font-heading font-semibold text-black">Michael Johnson</h3>
                   <p className="mt-1 text-sm text-muted-foreground">Instrument Rating Instructor</p>
                   <p className="mt-4 text-sm leading-relaxed text-gray-500">
-                    Michael's expertise in instrument flight rules (IFR) is unmatched. His attention to detail and ability
+                    Michael&#39;s expertise in instrument flight rules (IFR) is unmatched. His attention to detail and ability
                     to teach complex concepts make him an invaluable asset to our team.
                   </p>
                 </div>
