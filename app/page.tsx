@@ -26,8 +26,8 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 py-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
-              <div className="rounded-xl bg-stone-50 p-8 shadow-lg border border-stone-200 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:bg-white cursor-pointer">
+            <div className="mx-auto max-w-6xl py-12 lg:columns-3 lg:gap-10 md:columns-2 columns-1 space-y-8">
+              <div className="rounded-xl bg-stone-50 p-8 shadow-lg border border-stone-200 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:bg-white cursor-pointer break-inside-avoid">
                 <h3 className="text-2xl font-bold text-black mb-4">Private Pilot</h3>
                 <p className="text-gray-600 leading-relaxed mb-6">
                   Begin your aviation journey with our comprehensive Private Pilot License program. Learn fundamental flight skills, navigation, weather interpretation, and federal aviation regulations. This foundational course covers everything from basic aircraft systems to cross-country flight planning.
@@ -40,7 +40,7 @@ const Home = () => {
                 </div>
               </div>
               
-              <div className="rounded-xl bg-stone-50 p-8 shadow-lg border border-stone-200 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:bg-white cursor-pointer mt-8 lg:mt-0">
+              <div className="rounded-xl bg-stone-50 p-8 shadow-lg border border-stone-200 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:bg-white cursor-pointer break-inside-avoid">
                 <h3 className="text-2xl font-bold text-black mb-4">Instrument Rating</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   Master precision flying in all weather conditions. Learn to navigate using instruments alone, interpret approach plates, and execute precise approaches in low visibility conditions.
@@ -52,7 +52,7 @@ const Home = () => {
                 </div>
               </div>
               
-              <div className="rounded-xl bg-stone-50 p-8 shadow-lg border border-stone-200 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:bg-white cursor-pointer mt-16 lg:mt-0">
+              <div className="rounded-xl bg-stone-50 p-8 shadow-lg border border-stone-200 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:bg-white cursor-pointer break-inside-avoid">
                 <h3 className="text-2xl font-bold text-black mb-4">Commercial Pilot</h3>
                 <p className="text-gray-600 leading-relaxed mb-6">
                   Turn your passion into a profession. Develop advanced flight skills, complex aircraft operations, and the precision required for commercial aviation operations. Master advanced maneuvers and emergency procedures while building the experience needed for a career in aviation.
@@ -65,7 +65,7 @@ const Home = () => {
                 </div>
               </div>
               
-              <div className="rounded-xl bg-stone-50 p-8 shadow-lg border border-stone-200 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:bg-white cursor-pointer mt-12 lg:mt-0">
+              <div className="rounded-xl bg-stone-50 p-8 shadow-lg border border-stone-200 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:bg-white cursor-pointer break-inside-avoid">
                 <h3 className="text-2xl font-bold text-black mb-4">Flight Instructor</h3>
                 <p className="text-gray-600 leading-relaxed mb-6">
                   Share your aviation knowledge and build flight time as a Certified Flight Instructor. Learn teaching techniques, lesson planning, and advanced flight instruction methods. This rating opens doors to building hours while earning income and sharing your passion for aviation.
@@ -78,7 +78,7 @@ const Home = () => {
                 </div>
               </div>
               
-              <div className="rounded-xl bg-stone-50 p-8 shadow-lg border border-stone-200 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:bg-white cursor-pointer mt-4 lg:mt-0">
+              <div className="rounded-xl bg-stone-50 p-8 shadow-lg border border-stone-200 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:bg-white cursor-pointer break-inside-avoid">
                 <h3 className="text-2xl font-bold text-black mb-4">Tailwheel Endorsement</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   Master the art of flying conventional gear aircraft. Develop superior rudder skills, crosswind techniques, and experience the pure joy of flying classic tailwheel aircraft.
@@ -92,6 +92,9 @@ const Home = () => {
             </div>
           </div>
         </section>
+
+        {/* Section Divider */}
+        <div className="w-full border-t border-stone-300 opacity-50"></div>
 
         {/* Our Locations Section */}
         <section className="w-full py-12 md:py-24 lg:py-32">

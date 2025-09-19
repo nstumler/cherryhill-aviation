@@ -32,7 +32,7 @@ export function Header() {
           Contact
         </Link>
         <Link 
-          className="ml-4 inline-flex items-center justify-center rounded-md bg-accent px-6 py-2 text-sm font-medium text-primary shadow-sm hover:bg-accent-dark transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+          className="ml-4 inline-flex items-center justify-center rounded-md bg-accent px-8 py-3 text-base font-medium text-primary shadow-sm hover:bg-accent-dark transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
           href="/contact"
         >
           Book Discovery Flight
@@ -60,7 +60,7 @@ export function Header() {
               Contact
             </Link>
             <Link 
-              className="w-full mt-4 inline-flex items-center justify-center rounded-md bg-accent px-6 py-3 text-sm font-medium text-primary shadow-sm hover:bg-accent-dark transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+              className="w-full mt-4 inline-flex items-center justify-center rounded-md bg-accent px-8 py-3 text-base font-medium text-primary shadow-sm hover:bg-accent-dark transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
               href="/contact"
             >
               Book Discovery Flight
