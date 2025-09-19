@@ -72,11 +72,10 @@ export default function Instructors() {
             </div>
             <div className="mt-16 text-center">
               <Link
-                href="#"
+                href="/contact"
                 className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium rounded-md shadow bg-accent text-primary hover:bg-accent/90"
-                prefetch={false}
               >
-                Learn More About Our Instructors
+                Contact Our Instructors
               </Link>
             </div>
           </div>

@@ -1,13 +1,23 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function Footer() {
   return (
     <footer className="bg-primary text-black">
+      <div className="border-t-2 border-accent"></div>
       <div className="container mx-auto px-4 py-8 md:py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div>
-            <Link className="flex items-center mb-4" href="#">
-              <PlaneIcon className="h-8 w-8 mr-2 text-accent" />
+            <Link className="flex items-center mb-4" href="/">
+              <div className="relative h-8 w-8 mr-3">
+                <Image
+                  src="/favicon.ico"
+                  alt="Cherry Hill Aviation"
+                  width={32}
+                  height={32}
+                  className="object-contain"
+                />
+              </div>
               <span className="text-xl font-bold text-black">Cherry Hill Aviation</span>
             </Link>
             <p className="text-black text-sm">
@@ -17,16 +27,16 @@ export function Footer() {
           <div>
             <h4 className="text-lg font-bold mb-4 text-black">Quick Links</h4>
             <nav className="grid gap-2">
-              <Link className="text-black hover:text-accent transition-colors" href="#">
-                About
+              <Link className="text-black hover:text-accent transition-colors" href="/">
+                Home
               </Link>
-              <Link className="text-black hover:text-accent transition-colors" href="#">
+              <Link className="text-black hover:text-accent transition-colors" href="/fleet">
                 Fleet 
               </Link>
-              <Link className="text-black hover:text-accent transition-colors" href="#">
+              <Link className="text-black hover:text-accent transition-colors" href="/instructors">
                 Instructors
               </Link>
-              <Link className="text-black hover:text-accent transition-colors" href="#">
+              <Link className="text-black hover:text-accent transition-colors" href="/contact">
                 Contact
               </Link>
             </nav>
@@ -34,15 +44,15 @@ export function Footer() {
           <div>
             <h4 className="text-lg font-bold mb-4 text-black">Contact</h4>
             <div className="text-black text-sm">
-              <p>123 Aviation Way</p>
-              <p>Skyville, CA 90210</p>
-              <p>Phone: (555) 555-5555</p>
-              <p>Email: info@flightschool.com</p>
+              <p>8569 State Road 135 South</p>
+              <p>Freetown, IN 47235</p>
+              <p>Phone: (812) 322-6762</p>
+              <p>Email: aviation@yahoo.com</p>
             </div>
           </div>
         </div>
         <div className="border-t border-accent mt-8 pt-4 text-center text-sm text-black">
-          © 2024 Flight School. All rights reserved.
+          © 2022 Cherry Hill Aviation. All rights reserved.
         </div>
       </div>
     </footer>

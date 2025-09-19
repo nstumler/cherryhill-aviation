@@ -126,19 +126,8 @@ export default function Contact() {
                 </form>
               </div>
 
-              {/* Contact Information & Image */}
+              {/* Contact Information */}
               <div className="space-y-8">
-                {/* Image */}
-                <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg">
-                  <Image
-                    src="/view.png"
-                    alt="Cherry Hill Aviation - Beautiful mountain scenery for flight training"
-                    fill
-                    className="object-cover"
-                    quality={90}
-                  />
-                </div>
-
                 {/* Contact Info Cards */}
                 <div className="grid gap-4">
                   <div className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
