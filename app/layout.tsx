@@ -1,12 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display } from "next/font/google";
 import "./globals.css";
-
-const playfairDisplay = Playfair_Display({ 
-  subsets: ["latin"],
-  variable: '--font-playfair',
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   title: "Cherry Hill Aviation | Learn to fly in Indiana",
@@ -63,7 +56,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${playfairDisplay.className} ${playfairDisplay.variable} bg-primary min-h-screen`}>{children}</body>
+      <body className="font-serif bg-primary min-h-screen">{children}</body>
     </html>
   );
 }

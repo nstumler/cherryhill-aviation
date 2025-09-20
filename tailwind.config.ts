@@ -17,9 +17,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        'sans': ['var(--font-playfair)', 'serif'],
-        'display': ['var(--font-playfair)', 'serif'],
-        'heading': ['var(--font-playfair)', 'serif'],
+        'serif': ['"Times New Roman"', 'Times', 'serif'],
+        'sans': ['"Times New Roman"', 'Times', 'serif'],
+        'display': ['"Times New Roman"', 'Times', 'serif'],
+        'heading': ['"Times New Roman"', 'Times', 'serif'],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
