@@ -45,8 +45,8 @@ export function Footer() {
           <div>
             <h4 className="text-lg font-bold mb-4 text-black">Contact</h4>
             <div className="text-black text-sm">
-              <p>8569 State Road 135 South</p>
-              <p>Freetown, IN 47235</p>
+              <p>1025 A Ave</p>
+              <p>Seymour, IN 47274</p>
               <p>Phone: (812) 322-6762</p>
               <p>Email: aviation@yahoo.com</p>
             </div>

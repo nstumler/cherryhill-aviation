@@ -74,7 +74,7 @@ const SheetContent = React.forwardRef<
             objectFit="contain"
           />
         </div>
-        <SheetPrimitive.Close className="rounded-sm opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-gray-950 focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-gray-100 dark:ring-offset-white dark:focus:ring-gray-300 dark:data-[state=open]:bg-gray-800">
+        <SheetPrimitive.Close className="rounded-sm opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-gray-950 focus:ring-offset-2 disabled:pointer-events-none bg-transparent hover:bg-gray-100/20 dark:ring-offset-white dark:focus:ring-gray-300">
           <X className="h-6 w-6 text-black" />
           <span className="sr-only">Close</span>
         </SheetPrimitive.Close>

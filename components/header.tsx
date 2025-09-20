@@ -19,20 +19,20 @@ export function Header() {
         <span className="sr-only">Cherry Hill Aviation</span>
       </Link>
       <nav className="hidden lg:flex lg:items-center lg:gap-8">
-        <Link className="text-lg font-semibold text-black hover:text-accent transition-colors" href="/">
+        <Link className="text-lg font-semibold text-gray-800 hover:text-accent transition-colors" href="/">
           Home
         </Link>
-        <Link className="text-lg font-semibold text-black hover:text-accent transition-colors" href="/fleet">
+        <Link className="text-lg font-semibold text-gray-800 hover:text-accent transition-colors" href="/fleet">
           Fleet
         </Link>
-        <Link className="text-lg font-semibold text-black hover:text-accent transition-colors" href="/instructors">
+        <Link className="text-lg font-semibold text-gray-800 hover:text-accent transition-colors" href="/instructors">
           Instructors
         </Link>
-        <Link className="text-lg font-semibold text-black hover:text-accent transition-colors" href="/contact">
+        <Link className="text-lg font-semibold text-gray-800 hover:text-accent transition-colors" href="/contact">
           Contact
         </Link>
         <Link 
-          className="ml-4 inline-flex items-center justify-center rounded-md bg-accent px-6 py-2 text-sm font-medium text-primary shadow-sm hover:bg-accent-dark transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+          className="ml-4 inline-flex items-center justify-center rounded-md bg-accent px-8 py-3 text-base font-medium text-primary shadow-sm hover:bg-accent-dark transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
           href="/contact"
         >
           Book Discovery Flight
@@ -40,27 +40,30 @@ export function Header() {
       </nav>
       <Sheet>
         <SheetTrigger asChild>
-          <Button className="lg:hidden p-2 text-black bg-transparent border-none rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-accent">
+          <Button 
+            variant="ghost"
+            className="lg:hidden p-2 text-gray-800 !bg-transparent hover:!bg-gray-100/20 border-none shadow-none rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
+          >
             <MenuIcon className="h-6 w-6" />
             <span className="sr-only">Toggle navigation menu</span>
           </Button>
         </SheetTrigger>
         <SheetContent side="right" className="bg-primary text-black">
           <div className="grid gap-4 py-6">
-            <Link className="flex w-full items-center py-2 text-lg font-semibold text-black hover:text-accent transition-colors" href="/">
+            <Link className="flex w-full items-center py-2 text-lg font-semibold text-gray-800 hover:text-accent transition-colors" href="/">
               Home
             </Link>  
-            <Link className="flex w-full items-center py-2 text-lg font-semibold text-black hover:text-accent transition-colors" href="/fleet">
+            <Link className="flex w-full items-center py-2 text-lg font-semibold text-gray-800 hover:text-accent transition-colors" href="/fleet">
               Fleet
             </Link>
-            <Link className="flex w-full items-center py-2 text-lg font-semibold text-black hover:text-accent transition-colors" href="/instructors">
+            <Link className="flex w-full items-center py-2 text-lg font-semibold text-gray-800 hover:text-accent transition-colors" href="/instructors">
               Instructors
             </Link>
-            <Link className="flex w-full items-center py-2 text-lg font-semibold text-black hover:text-accent transition-colors" href="/contact">
+            <Link className="flex w-full items-center py-2 text-lg font-semibold text-gray-800 hover:text-accent transition-colors" href="/contact">
               Contact
             </Link>
             <Link 
-              className="w-full mt-4 inline-flex items-center justify-center rounded-md bg-accent px-6 py-3 text-sm font-medium text-primary shadow-sm hover:bg-accent-dark transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+              className="w-full mt-4 inline-flex items-center justify-center rounded-md bg-accent px-8 py-3 text-base font-medium text-primary shadow-sm hover:bg-accent-dark transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
               href="/contact"
             >
               Book Discovery Flight

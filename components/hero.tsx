@@ -19,7 +19,7 @@ export function Hero() {
             Learn to fly at <br></br>Cherry Hill Aviation
           </h1>
           <p className="mb-8 text-xl font-medium text-gray-200 md:text-2xl lg:text-2xl max-w-3xl mx-auto">
-          Soar to new heights with our premier flight training. Professional instruction, modern aircraft, and personalized learning to help you achieve your aviation dreams.
+          Soar to new heights with our premier flight training. Professional instruction, modern aircraft, and personalized learning. 
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
