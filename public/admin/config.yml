@@ -1,0 +1,89 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "content/home.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string", default: "Learn to fly at Cherry Hill Aviation"}
+          - {label: "Subtitle", name: "subtitle", widget: "text", default: "Soar to new heights with our premier flight training. Professional instruction, modern aircraft, and personalized learning."}
+          - {label: "Hero Image", name: "hero_image", widget: "image", default: "/view.png"}
+          - label: "Flight Training Options"
+            name: "training_options"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Requirements", name: "requirements", widget: "string"}
+              - {label: "Duration", name: "duration", widget: "string"}
+              - {label: "Additional Info", name: "additional_info", widget: "string"}
+      
+      - label: "Contact Page"
+        name: "contact"
+        file: "content/contact.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string", default: "Contact Us"}
+          - {label: "Subtitle", name: "subtitle", widget: "text", default: "Ready to start your aviation journey? Get in touch with our team and let's get you flying."}
+          - {label: "Phone", name: "phone", widget: "string", default: "615-669-5117"}
+          - {label: "Email", name: "email", widget: "string", default: "fly@cherryhillaviation.com"}
+          - {label: "Hours", name: "hours", widget: "string", default: "Mon - Sun: 8am - 5pm"}
+
+  - name: "instructors"
+    label: "Instructors"
+    folder: "content/instructors"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Title", name: "title", widget: "string", default: "Certified Flight Instructor"}
+      - {label: "Photo", name: "photo", widget: "image"}
+      - {label: "Bio", name: "bio", widget: "text"}
+      - {label: "Website", name: "website", widget: "string", required: false}
+
+  - name: "fleet"
+    label: "Fleet"
+    folder: "content/fleet"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Aircraft Name", name: "name", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Seats", name: "seats", widget: "number"}
+      - {label: "Engine", name: "engine", widget: "string"}
+      - {label: "Cruise Speed", name: "cruise_speed", widget: "string"}
+      - {label: "Range", name: "range", widget: "string"}
+
+  - name: "locations"
+    label: "Locations"
+    folder: "content/locations"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Airport Name", name: "name", widget: "string"}
+      - {label: "Address Line 1", name: "address1", widget: "string"}
+      - {label: "Address Line 2", name: "address2", widget: "string"}
+      - {label: "Google Maps Link", name: "maps_link", widget: "string"}
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "General Settings"
+        name: "general"
+        file: "content/settings.md"
+        fields:
+          - {label: "Site Title", name: "site_title", widget: "string", default: "Cherry Hill Aviation"}
+          - {label: "Site Description", name: "site_description", widget: "text", default: "Flight school serving Bedford, Seymour, and North Vernon, Indiana"}
+          - {label: "Logo", name: "logo", widget: "image", default: "/Cherryhill LOGO.png"}
+          - {label: "Footer Phone", name: "footer_phone", widget: "string", default: "(812) 322-6762"}
+          - {label: "Footer Email", name: "footer_email", widget: "string", default: "aviation@yahoo.com"}
+          - {label: "Footer Address Line 1", name: "footer_address1", widget: "string", default: "1025 A Ave"}
+          - {label: "Footer Address Line 2", name: "footer_address2", widget: "string", default: "Seymour, IN 47274"}
