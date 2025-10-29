@@ -1,11 +1,19 @@
+'use client'
+
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
+import { DiscoveryFlightModal } from "@/components/discovery-flight-modal";
 import type { SVGProps } from "react";
 
 export function Header() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
+    <>
+      <DiscoveryFlightModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     <header className="flex h-20 w-full items-center justify-between px-6 py-4 bg-primary shadow-md">
       <Link className="flex items-center" href="/">
         <div className="relative h-16 w-40">
@@ -31,12 +39,12 @@ export function Header() {
         <Link className="text-lg font-semibold text-gray-800 hover:text-accent transition-colors" href="/contact">
           Contact
         </Link>
-        <Link 
+        <button 
+          onClick={() => setIsModalOpen(true)}
           className="ml-4 inline-flex items-center justify-center rounded-md bg-accent px-8 py-3 text-base font-medium text-primary shadow-sm hover:bg-accent-dark transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
-          href="/contact"
         >
           Book Discovery Flight
-        </Link>
+        </button>
       </nav>
       <Sheet>
         <SheetTrigger asChild>
@@ -62,16 +70,17 @@ export function Header() {
             <Link className="flex w-full items-center py-2 text-lg font-semibold text-gray-800 hover:text-accent transition-colors" href="/contact">
               Contact
             </Link>
-            <Link 
+            <button 
+              onClick={() => setIsModalOpen(true)}
               className="w-full mt-4 inline-flex items-center justify-center rounded-md bg-accent px-8 py-3 text-base font-medium text-primary shadow-sm hover:bg-accent-dark transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
-              href="/contact"
             >
               Book Discovery Flight
-            </Link>
+            </button>
           </div>
         </SheetContent>
       </Sheet>
     </header>
+    </>
   )
 }
 

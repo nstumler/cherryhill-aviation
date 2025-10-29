@@ -70,9 +70,11 @@ export default function Fleet() {
                 <CardHeader className="bg-accent-dark text-primary rounded-t-lg">
                   <CardTitle className="font-bold">{aircraft.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <Image src={aircraft.imgSrc} alt={aircraft.title} width={400} height={300} className="rounded-md" />
-                  <div className="mt-4">
+                <CardContent className="p-6">
+                  <div className="relative w-full h-64 mb-4 bg-gray-100 rounded-md overflow-hidden">
+                    <Image src={aircraft.imgSrc} alt={aircraft.title} fill className="object-cover" />
+                  </div>
+                  <div>
                     <p className="text-gray-500">{aircraft.description}</p>
                     <p className="mt-2 text-gray-500">
                       Specifications:

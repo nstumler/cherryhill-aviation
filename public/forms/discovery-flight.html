@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Discovery Flight Form</title>
+</head>
+<body>
+  <form name="discovery-flight" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thank-you">
+    <input type="hidden" name="form-name" value="discovery-flight" />
+    <input type="hidden" name="subject" value="Discovery Flight Booking Request" />
+    <div class="hidden">
+      <input name="bot-field" />
+    </div>
+    <input type="text" name="name" required />
+    <input type="email" name="email" required />
+    <input type="tel" name="phone" required />
+    <input type="text" name="date" />
+    <textarea name="message"></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
+
