@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
@@ -28,8 +28,18 @@ const aircraftData = [
   }
 ];
 
+const heroImages = ["/N3870S.jpg", "/N53065.jpg"];
+
 export default function Fleet() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [heroImageIndex, setHeroImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % aircraftData.length);
@@ -43,46 +53,91 @@ export default function Fleet() {
     <div className="flex flex-col min-h-screen bg-primary">
       <Header />
       <section className="relative h-[80vh] w-full overflow-hidden">
-        <Image 
-          src="/N3870S.jpg" 
-          alt="Cherry Hill Aviation Fleet" 
-          fill
-          className="absolute inset-0 h-full w-full object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-primary">
-          <h1 className="text-5xl font-bold tracking-tight lg:text-7xl">Explore Our Fleet</h1>
-          <p className="mt-4 max-w-2xl text-xl lg:text-2xl">
+        {heroImages.map((src, index) => (
+          <Image 
+            key={src}
+            src={src} 
+            alt="Cherry Hill Aviation Fleet" 
+            fill
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
+              index === heroImageIndex ? 'opacity-100' : 'opacity-0'
+            }`}
+            priority={index === 0}
+          />
+        ))}
+        <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-primary to-transparent z-10" />
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-primary to-transparent z-10" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-primary z-20">
+          <h1 className="text-5xl font-bold tracking-tight lg:text-7xl drop-shadow-lg">Explore Our Fleet</h1>
+          <p className="mt-4 max-w-2xl text-xl lg:text-2xl drop-shadow-md">
             Experience the thrill of flight with our diverse range of aircraft.
           </p>
         </div>
       </section>
-      <section className="py-16 lg:py-24">
+      <section className="py-16 lg:py-24 bg-primary">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight text-accent sm:text-4xl">Our Aircraft</h2>
-          <p className="mt-4 max-w-3xl text-xl text-gray-500">
-            Discover the aircraft that will take your flying experience to new heights.
-          </p>
-          <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-4">Our Aircraft</h2>
+            <p className="mt-4 max-w-3xl mx-auto text-xl text-gray-600">
+              Discover the aircraft that will take your flying experience to new heights.
+            </p>
+          </div>
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
             {aircraftData.map((aircraft, index) => (
-              <Card key={index} className="mx-auto max-w-md bg-white border border-gray-200 shadow-lg rounded-lg">
-                <CardHeader className="bg-accent-dark text-primary rounded-t-lg">
-                  <CardTitle className="font-bold">{aircraft.title}</CardTitle>
+              <Card key={index} className="group mx-auto max-w-md bg-white border-0 shadow-xl rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                <CardHeader className="bg-gradient-to-r from-accent-dark to-accent text-primary rounded-t-2xl px-6 py-5">
+                  <CardTitle className="font-bold text-xl tracking-wide">{aircraft.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="p-6">
-                  <div className="relative w-full h-64 mb-4 bg-gray-100 rounded-md overflow-hidden">
-                    <Image src={aircraft.imgSrc} alt={aircraft.title} fill className="object-cover" />
+                <CardContent className="p-0">
+                  <div className="relative w-full h-72 bg-gray-100 overflow-hidden">
+                    <Image 
+                      src={aircraft.imgSrc} 
+                      alt={aircraft.title} 
+                      fill 
+                      className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
-                  <div>
-                    <p className="text-gray-500">{aircraft.description}</p>
-                    <p className="mt-2 text-gray-500">
-                      Specifications:
-                      <br />
-                      {aircraft.specifications.split('\n').map((line, index) => (
-                        <span key={index}>{line}<br /></span>
-                      ))}
-                    </p>
+                  <div className="p-6">
+                    <div className="mb-6 p-5 bg-gradient-to-br from-accent/5 to-accent/10 rounded-xl border border-accent/20">
+                      <p className="text-sm font-semibold text-accent-dark uppercase tracking-wider mb-3">Rates</p>
+                      <div className="space-y-2">
+                        <p className="text-2xl font-bold text-gray-900">
+                          $175<span className="text-base font-semibold text-gray-600">/hr</span>
+                          <span className="text-sm font-normal text-gray-500 ml-2">(wet)</span>
+                        </p>
+                        <p className="text-lg font-semibold text-gray-700">
+                          $165<span className="text-sm font-normal text-gray-600">/hr (prepay)</span>
+                        </p>
+                        <div className="pt-2 border-t border-accent/20">
+                          <p className="text-base font-semibold text-gray-800">
+                            Instruction: <span className="text-accent-dark font-bold">$60/hr</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <p className="text-gray-700 leading-relaxed">{aircraft.description}</p>
+                      <div>
+                        <p className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-3">Specifications</p>
+                        <ul className="space-y-2">
+                          {aircraft.specifications.split('\n').map((line, idx) => {
+                            const parts = line.replace(/^-\s*/, '').split(':');
+                            if (parts.length === 2) {
+                              return (
+                                <li key={idx} className="flex justify-between items-start text-sm">
+                                  <span className="text-gray-600 font-medium">{parts[0]}:</span>
+                                  <span className="text-gray-900 font-semibold text-right ml-4">{parts[1]}</span>
+                                </li>
+                              );
+                            }
+                            return (
+                              <li key={idx} className="text-sm text-gray-600">{line.replace(/^-\s*/, '')}</li>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
