@@ -14,7 +14,7 @@ export function Header() {
   return (
     <>
       <DiscoveryFlightModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-    <header className="flex h-20 w-full items-center justify-between px-6 py-4 bg-primary shadow-md">
+    <header className="flex h-20 w-full items-center justify-between px-6 py-4 bg-primary">
       <Link className="flex items-center" href="/">
         <div className="relative h-16 w-40">
           <Image

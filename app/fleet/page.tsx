@@ -1,9 +1,8 @@
 'use client'
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 
@@ -28,10 +27,9 @@ const aircraftData = [
   }
 ];
 
-const heroImages = ["/N3870S.jpg", "/N53065.jpg"];
+const heroImages = ["/N3870S.jpg", "/N53065.jpg"] as const;
 
 export default function Fleet() {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [heroImageIndex, setHeroImageIndex] = useState(0);
 
   useEffect(() => {
@@ -41,28 +39,32 @@ export default function Fleet() {
     return () => clearInterval(interval);
   }, []);
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % aircraftData.length);
-  };
-
-  const handlePrevious = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + aircraftData.length) % aircraftData.length);
-  };
+  const parsedAircraftData = useMemo(() => {
+    return aircraftData.map((aircraft) => ({
+      ...aircraft,
+      parsedSpecs: aircraft.specifications.split('\n').map((line) => {
+        const parts = line.replace(/^-\s*/, '').split(':');
+        return parts.length === 2 ? { key: parts[0], value: parts[1] } : { text: line.replace(/^-\s*/, '') };
+      }),
+    }));
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen bg-primary">
       <Header />
-      <section className="relative h-[80vh] w-full overflow-hidden">
+      <section className="relative h-screen w-full overflow-hidden">
         {heroImages.map((src, index) => (
           <Image 
             key={src}
             src={src} 
             alt="Cherry Hill Aviation Fleet" 
             fill
+            sizes="100vw"
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
               index === heroImageIndex ? 'opacity-100' : 'opacity-0'
             }`}
             priority={index === 0}
+            quality={85}
           />
         ))}
         <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-primary to-transparent z-10" />
@@ -83,8 +85,8 @@ export default function Fleet() {
             </p>
           </div>
           <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {aircraftData.map((aircraft, index) => (
-              <Card key={index} className="group mx-auto max-w-md bg-white border-0 shadow-xl rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+            {parsedAircraftData.map((aircraft, index) => (
+              <Card key={aircraft.title} className="group mx-auto max-w-md bg-white border-0 shadow-xl rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <CardHeader className="bg-gradient-to-r from-accent-dark to-accent text-primary rounded-t-2xl px-6 py-5">
                   <CardTitle className="font-bold text-xl tracking-wide">{aircraft.title}</CardTitle>
                 </CardHeader>
@@ -94,7 +96,9 @@ export default function Fleet() {
                       src={aircraft.imgSrc} 
                       alt={aircraft.title} 
                       fill 
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
@@ -121,18 +125,17 @@ export default function Fleet() {
                       <div>
                         <p className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-3">Specifications</p>
                         <ul className="space-y-2">
-                          {aircraft.specifications.split('\n').map((line, idx) => {
-                            const parts = line.replace(/^-\s*/, '').split(':');
-                            if (parts.length === 2) {
+                          {aircraft.parsedSpecs.map((spec, idx) => {
+                            if ('key' in spec) {
                               return (
                                 <li key={idx} className="flex justify-between items-start text-sm">
-                                  <span className="text-gray-600 font-medium">{parts[0]}:</span>
-                                  <span className="text-gray-900 font-semibold text-right ml-4">{parts[1]}</span>
+                                  <span className="text-gray-600 font-medium">{spec.key}:</span>
+                                  <span className="text-gray-900 font-semibold text-right ml-4">{spec.value}</span>
                                 </li>
                               );
                             }
                             return (
-                              <li key={idx} className="text-sm text-gray-600">{line.replace(/^-\s*/, '')}</li>
+                              <li key={idx} className="text-sm text-gray-600">{spec.text}</li>
                             );
                           })}
                         </ul>

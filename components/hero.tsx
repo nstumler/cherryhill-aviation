@@ -19,8 +19,10 @@ export function Hero() {
         priority
         quality={90}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/60" />
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-primary">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 via-black/50 to-black/60 z-10" />
+      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-primary via-primary/80 via-primary/50 via-primary/20 to-transparent z-20" />
+      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-primary via-primary/70 via-primary/30 to-transparent z-20" />
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-primary z-30">
         <div className="container max-w-4xl px-4">
           <h1 className="mb-6 text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl">
             Learn to fly at <br></br>Cherry Hill Aviation
