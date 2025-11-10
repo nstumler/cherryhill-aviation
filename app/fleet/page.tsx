@@ -64,7 +64,8 @@ export default function Fleet() {
               index === heroImageIndex ? 'opacity-100' : 'opacity-0'
             }`}
             priority={index === 0}
-            quality={85}
+            quality={75}
+            loading={index === 0 ? undefined : 'lazy'}
           />
         ))}
         <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-primary to-transparent z-10" />
@@ -99,6 +100,7 @@ export default function Fleet() {
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500" 
                       loading="lazy"
+                      quality={75}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>

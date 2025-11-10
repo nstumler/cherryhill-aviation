@@ -26,6 +26,9 @@ export default function Instructors() {
                     alt="Noah Stumler Photo"
                     fill
                     className="absolute inset-0 object-cover w-full h-full"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    loading="lazy"
+                    quality={75}
                   />
                 </div>
                 <div className="p-6">
@@ -59,6 +62,9 @@ export default function Instructors() {
                     alt="Riley Scruggs Photo - Coming Soon"
                     fill
                     className="absolute inset-0 object-cover w-full h-full"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    loading="lazy"
+                    quality={75}
                   />
                 </div>
                 <div className="p-6">

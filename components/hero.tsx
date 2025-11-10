@@ -1,15 +1,10 @@
 'use client'
 
-import { useState } from "react"
 import Image from "next/image"
-import { DiscoveryFlightModal } from "@/components/discovery-flight-modal"
+import { config } from "@/lib/config"
 
 export function Hero() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
-    <>
-      <DiscoveryFlightModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     <section className="relative h-screen w-full overflow-hidden">
       <Image
         src="/view.png"
@@ -17,12 +12,15 @@ export function Hero() {
         fill
         className="object-cover"
         priority
-        quality={90}
+        quality={75}
+        sizes="100vw"
+        placeholder="blur"
+        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
       />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 via-black/50 to-black/60 z-10" />
-      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-primary via-primary/80 via-primary/50 via-primary/20 to-transparent z-20" />
-      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-primary via-primary/70 via-primary/30 to-transparent z-20" />
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-primary z-30">
+      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-primary to-transparent z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-primary to-transparent z-10" />
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-primary z-20">
         <div className="container max-w-4xl px-4">
           <h1 className="mb-6 text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl">
             Learn to fly at <br></br>Cherry Hill Aviation
@@ -31,16 +29,17 @@ export function Hero() {
           Soar to new heights with our premier flight training. Professional instruction, modern aircraft, and personalized learning. 
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => setIsModalOpen(true)}
+            <a
+              href={config.calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-lg bg-accent px-10 py-4 text-lg font-semibold text-primary shadow-xl hover:bg-accent-dark transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
             >
               Book a Discovery Flight
-            </button>
+            </a>
           </div>
         </div>
       </div>
     </section>
-    </>
   )
 }

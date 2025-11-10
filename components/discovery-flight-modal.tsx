@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { X } from 'lucide-react'
+import { config } from '@/lib/config'
 
 interface DiscoveryFlightModalProps {
   isOpen: boolean
@@ -19,30 +20,38 @@ export function DiscoveryFlightModal({ isOpen, onClose }: DiscoveryFlightModalPr
     setIsSubmitting(true)
     
     const formData = new FormData(e.currentTarget)
+    const name = formData.get('name') as string
+    const email = formData.get('email') as string
+    const phone = formData.get('phone') as string
+    const date = formData.get('date') as string
+    const message = formData.get('message') as string
     
-    try {
-      // Using Netlify Forms
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData as any).toString()
-      })
+    // Create email body
+    const emailBody = `Hello,
 
-      if (response.ok) {
-        setSubmitStatus('success')
-        setTimeout(() => {
-          onClose()
-          setSubmitStatus('idle')
-          ;(e.target as HTMLFormElement).reset()
-        }, 2000)
-      } else {
-        setSubmitStatus('error')
-      }
-    } catch (error) {
-      setSubmitStatus('error')
-    } finally {
+I would like to book a discovery flight.
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone || 'Not provided'}
+Preferred Date/Time: ${date || 'Not specified'}
+
+Additional Information:
+${message || 'None'}
+
+Please contact me to schedule.`
+    
+    // Open mailto link
+    const mailtoLink = `mailto:${config.contactEmail}?subject=Discovery Flight Booking Request&body=${encodeURIComponent(emailBody)}`
+    window.location.href = mailtoLink
+    
+    setSubmitStatus('success')
+    setTimeout(() => {
+      onClose()
+      setSubmitStatus('idle')
+      ;(e.target as HTMLFormElement).reset()
       setIsSubmitting(false)
-    }
+    }, 2000)
   }
 
   return (
@@ -63,7 +72,34 @@ export function DiscoveryFlightModal({ isOpen, onClose }: DiscoveryFlightModalPr
         {/* Modal Content */}
         <div className="p-8">
           <h2 className="text-3xl font-bold text-black mb-2">Book Your Discovery Flight</h2>
-          <p className="text-gray-600 mb-6">Experience the thrill of flying! Fill out the form below and we&apos;ll contact you to schedule your discovery flight.</p>
+          <p className="text-gray-600 mb-6">Experience the thrill of flying! Contact us directly or fill out the form below.</p>
+          
+          {/* Direct Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 mb-6">
+            <a
+              href={`mailto:${config.contactEmail}?subject=Discovery Flight Booking Request&body=Hello,%0D%0A%0D%0AI would like to book a discovery flight.%0D%0A%0D%0APlease contact me to schedule.`}
+              className="flex-1 px-6 py-3 bg-accent hover:bg-accent-dark text-primary font-semibold rounded-lg transition-colors text-center"
+            >
+              Email Us Directly
+            </a>
+            <a
+              href={config.calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 px-6 py-3 border-2 border-accent text-accent hover:bg-accent hover:text-primary font-semibold rounded-lg transition-colors text-center"
+            >
+              Schedule on Calendly
+            </a>
+          </div>
+          
+          <div className="relative mb-6">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-300"></div>
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="px-2 bg-white text-gray-500">Or fill out the form below</span>
+            </div>
+          </div>
 
           {submitStatus === 'success' ? (
             <div className="py-8 text-center">
