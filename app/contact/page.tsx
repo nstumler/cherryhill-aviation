@@ -12,47 +12,36 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    const formData = new FormData(e.currentTarget);
-    const firstName = formData.get('first-name') as string;
-    const lastName = formData.get('last-name') as string;
-    const email = formData.get('email') as string;
-    const phone = formData.get('phone') as string;
-    const service = formData.get('service') as string;
-    const contactPreference = formData.get('contact-preference') as string;
-    const message = formData.get('message') as string;
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     
-    // Create email body
-    const emailBody = `Hello Cherry Hill Aviation,
+    try {
+      // Submit to Netlify Forms
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString()
+      });
 
-I would like to get in touch with you.
-
-Name: ${firstName} ${lastName}
-Email: ${email}
-Phone: ${phone || 'Not provided'}
-Service Interest: ${service || 'Not specified'}
-Preferred Contact Method: ${contactPreference || 'Not specified'}
-
-Message:
-${message || 'No message provided'}
-
-Please contact me at your earliest convenience.
-
-Thank you!`;
-    
-    // Open mailto link
-    const mailtoLink = `mailto:${config.contactEmail}?subject=Contact Form Submission from ${firstName} ${lastName}&body=${encodeURIComponent(emailBody)}`;
-    window.location.href = mailtoLink;
-    
-    setSubmitStatus('success');
-    setTimeout(() => {
-      setSubmitStatus('idle');
-      ;(e.target as HTMLFormElement).reset();
+      if (response.ok) {
+        setSubmitStatus('success');
+        setTimeout(() => {
+          setSubmitStatus('idle');
+          form.reset();
+          setIsSubmitting(false);
+        }, 3000);
+      } else {
+        setSubmitStatus('error');
+        setIsSubmitting(false);
+      }
+    } catch (error) {
+      setSubmitStatus('error');
       setIsSubmitting(false);
-    }, 2000);
+    }
   };
 
   return (
@@ -82,11 +71,39 @@ Thank you!`;
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-bold text-black mb-2">Message Prepared!</h3>
-                    <p className="text-gray-600">Your email client should open with your message ready to send.</p>
+                    <h3 className="text-xl font-bold text-black mb-2">Message Sent!</h3>
+                    <p className="text-gray-600">Thank you for contacting us. We&apos;ll get back to you soon!</p>
+                  </div>
+                ) : submitStatus === 'error' ? (
+                  <div className="py-8 text-center">
+                    <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-black mb-2">Error Sending Message</h3>
+                    <p className="text-gray-600 mb-4">Something went wrong. Please try again or contact us directly.</p>
+                    <button
+                      onClick={() => setSubmitStatus('idle')}
+                      className="px-6 py-2 bg-accent hover:bg-accent-dark text-primary font-semibold rounded-lg transition-colors"
+                    >
+                      Try Again
+                    </button>
                   </div>
                 ) : (
-                <form className="space-y-6" onSubmit={handleSubmit}>
+                <form 
+                  className="space-y-6" 
+                  onSubmit={handleSubmit}
+                  name="contact"
+                  method="POST"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                >
+                  <input type="hidden" name="form-name" value="contact" />
+                  <input type="hidden" name="subject" value="Contact Form Submission" />
+                  <div className="hidden">
+                    <input name="bot-field" />
+                  </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="first-name" className="block text-sm font-semibold text-gray-700 mb-2">

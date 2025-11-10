@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Form</title>
+</head>
+<body>
+  <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thank-you">
+    <input type="hidden" name="form-name" value="contact" />
+    <input type="hidden" name="subject" value="Contact Form Submission" />
+    <div class="hidden">
+      <input name="bot-field" />
+    </div>
+    <input type="text" name="first-name" required />
+    <input type="text" name="last-name" required />
+    <input type="email" name="email" required />
+    <input type="tel" name="phone" />
+    <select name="service">
+      <option value="">Select a service...</option>
+      <option>Private Pilot License</option>
+      <option>Instrument Rating</option>
+      <option>Commercial Pilot License</option>
+      <option>Flight Instructor Certification</option>
+      <option>Aircraft Rental</option>
+      <option>Discovery Flight</option>
+    </select>
+    <input type="radio" name="contact-preference" value="phone" />
+    <input type="radio" name="contact-preference" value="email" />
+    <input type="radio" name="contact-preference" value="text" />
+    <textarea name="message"></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
+
