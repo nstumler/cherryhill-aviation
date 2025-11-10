@@ -1,12 +1,60 @@
 'use client'
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { PhoneIcon, MailIcon, ClockIcon } from "lucide-react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { config } from "@/lib/config";
 
 export default function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const formData = new FormData(e.currentTarget);
+    const firstName = formData.get('first-name') as string;
+    const lastName = formData.get('last-name') as string;
+    const email = formData.get('email') as string;
+    const phone = formData.get('phone') as string;
+    const service = formData.get('service') as string;
+    const contactPreference = formData.get('contact-preference') as string;
+    const message = formData.get('message') as string;
+    
+    // Create email body
+    const emailBody = `Hello Cherry Hill Aviation,
+
+I would like to get in touch with you.
+
+Name: ${firstName} ${lastName}
+Email: ${email}
+Phone: ${phone || 'Not provided'}
+Service Interest: ${service || 'Not specified'}
+Preferred Contact Method: ${contactPreference || 'Not specified'}
+
+Message:
+${message || 'No message provided'}
+
+Please contact me at your earliest convenience.
+
+Thank you!`;
+    
+    // Open mailto link
+    const mailtoLink = `mailto:${config.contactEmail}?subject=Contact Form Submission from ${firstName} ${lastName}&body=${encodeURIComponent(emailBody)}`;
+    window.location.href = mailtoLink;
+    
+    setSubmitStatus('success');
+    setTimeout(() => {
+      setSubmitStatus('idle');
+      ;(e.target as HTMLFormElement).reset();
+      setIsSubmitting(false);
+    }, 2000);
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-primary">
       <Header />
@@ -27,7 +75,18 @@ export default function Contact() {
               {/* Contact Form */}
               <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8">
                 <h2 className="text-2xl font-bold text-black mb-6">Send us a message</h2>
-                <form className="space-y-6">
+                {submitStatus === 'success' ? (
+                  <div className="py-8 text-center">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-black mb-2">Message Prepared!</h3>
+                    <p className="text-gray-600">Your email client should open with your message ready to send.</p>
+                  </div>
+                ) : (
+                <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="first-name" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -36,6 +95,8 @@ export default function Contact() {
                       <input 
                         type="text" 
                         id="first-name" 
+                        name="first-name"
+                        required
                         className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white transition-colors" 
                         placeholder="Your first name"
                       />
@@ -47,6 +108,8 @@ export default function Contact() {
                       <input 
                         type="text" 
                         id="last-name" 
+                        name="last-name"
+                        required
                         className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white transition-colors" 
                         placeholder="Your last name"
                       />
@@ -60,6 +123,8 @@ export default function Contact() {
                       <input 
                         type="email" 
                         id="email" 
+                        name="email"
+                        required
                         className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white transition-colors" 
                         placeholder="your.email@example.com"
                       />
@@ -71,6 +136,7 @@ export default function Contact() {
                       <input 
                         type="tel" 
                         id="phone" 
+                        name="phone"
                         className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white transition-colors" 
                         placeholder="(555) 123-4567"
                       />
@@ -80,7 +146,7 @@ export default function Contact() {
                     <label htmlFor="service" className="block text-sm font-semibold text-gray-700 mb-2">
                       What can we help you with today?
                     </label>
-                    <select id="service" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white transition-colors">
+                    <select id="service" name="service" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white transition-colors">
                       <option value="">Select a service...</option>
                       <option>Private Pilot License</option>
                       <option>Instrument Rating</option>
@@ -112,6 +178,7 @@ export default function Contact() {
                     </label>
                     <textarea
                       id="message"
+                      name="message"
                       rows={4}
                       className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white transition-colors resize-none"
                       placeholder="Tell us more about your aviation goals and how we can help..."
@@ -119,11 +186,13 @@ export default function Contact() {
                   </div>
                   <button 
                     type="submit" 
-                    className="w-full p-3 bg-accent hover:bg-accent-dark text-primary font-semibold rounded-lg transition-colors shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+                    disabled={isSubmitting}
+                    className="w-full p-3 bg-accent hover:bg-accent-dark text-primary font-semibold rounded-lg transition-colors shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Send Message
+                    {isSubmitting ? 'Preparing Email...' : 'Send Message'}
                   </button>
                 </form>
+                )}
               </div>
 
               {/* Contact Information */}
@@ -145,7 +214,9 @@ export default function Contact() {
                       <MailIcon className="w-6 h-6 text-accent" />
                       <div>
                         <h3 className="font-bold text-black">Email Us</h3>
-                        <p className="text-gray-600">fly@cherryhillaviation.com</p>
+                        <a href={`mailto:${config.contactEmail}`} className="text-gray-600 hover:text-accent transition-colors">
+                          {config.contactEmail}
+                        </a>
                       </div>
                     </div>
                   </div>
