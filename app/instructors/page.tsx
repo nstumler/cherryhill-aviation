@@ -10,7 +10,7 @@ export default function Instructors() {
     <div className="flex flex-col min-h-screen bg-primary">
       <Header />
       <main className="flex-1">
-        <section className="py-24">
+        <section className="pt-16 pb-24 md:pt-24 lg:pt-32">
           <div className="container px-4 mx-auto">
             <div className="max-w-2xl mx-auto mb-16 text-center">
               <h2 className="text-4xl font-bold tracking-tighter text-black">Our Instructors</h2>
