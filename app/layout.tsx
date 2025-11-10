@@ -60,22 +60,18 @@ export default function RootLayout({
     <html lang="en">
       <body className="font-serif bg-primary min-h-screen">
         {/* Google Analytics */}
-        {config.googleAnalyticsId !== 'G-XXXXXXXXXX' && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${config.googleAnalyticsId}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${config.googleAnalyticsId}');
-              `}
-            </Script>
-          </>
-        )}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${config.googleAnalyticsId}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${config.googleAnalyticsId}');
+          `}
+        </Script>
         {children}
       </body>
     </html>
