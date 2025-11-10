@@ -9,7 +9,7 @@ import type { SVGProps } from "react";
 
 export function Header() {
   return (
-    <header className="flex h-20 w-full items-center justify-between px-6 py-4 bg-primary border-0">
+    <header className="flex h-20 w-full items-center justify-between px-6 py-4 bg-primary !border-0 !shadow-none !outline-none">
       <Link className="flex items-center" href="/">
         <div className="relative h-16 w-40">
           <Image
@@ -55,7 +55,7 @@ export function Header() {
             <span className="sr-only">Toggle navigation menu</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side="right" className="bg-primary text-black border-0 shadow-none">
+        <SheetContent side="right" className="bg-primary text-black !border-0 !border-none !shadow-none !outline-none" style={{ border: 'none', boxShadow: 'none', outline: 'none' }}>
           <div className="grid gap-4 py-6">
             <Link className="flex w-full items-center py-2 text-lg font-semibold text-gray-800 hover:text-accent transition-colors" href="/">
               Home

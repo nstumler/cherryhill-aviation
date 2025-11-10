@@ -48,7 +48,9 @@ export function Footer() {
               <p>1025 A Ave</p>
               <p>Seymour, IN 47274</p>
               <p>Phone: (812) 322-6762</p>
-              <p>Email: aviation@yahoo.com</p>
+              <p>
+                Email: <a href="mailto:team@cherryhillaviation.com" className="hover:text-accent transition-colors">team@cherryhillaviation.com</a>
+              </p>
             </div>
           </div>
         </div>

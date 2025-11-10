@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Aggressively remove all borders from Sheet/Dialog component */
+[data-radix-dialog-content],
+[data-radix-dialog-content] *,
+[role="dialog"],
+[role="dialog"] * {
+  border: 0 !important;
+  border-width: 0 !important;
+  border-style: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+
+/* Remove borders from all sides */
+[data-radix-dialog-overlay] + [data-radix-dialog-content] {
+  border: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Remove any separator lines */
+[data-radix-dialog-content]::before,
+[data-radix-dialog-content]::after {
+  display: none !important;
+}
+
+/* Ensure header has no bottom border */
+header {
+  border: 0 !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
